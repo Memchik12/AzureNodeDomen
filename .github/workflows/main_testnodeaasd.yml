@@ -47,13 +47,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.__clientidsecretname__ }}
-          tenant-id: ${{ secrets.__tenantidsecretname__ }}
-          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F31764BCF1A84FE49EBA88B7FFE2748C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_63DC72439BA74138A6F5975FF8B65032 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_212CF8EA3C3A4D2F8C7E8FA25451B767 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -62,3 +62,4 @@ jobs:
           app-name: 'testNodeaasd'
           slot-name: 'Production'
           package: .
+          
